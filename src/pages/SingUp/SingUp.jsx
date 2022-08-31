@@ -1,3 +1,4 @@
+import {Link} from "react-router-dom"
 import { Container,Form,BackgroundImage } from "./style";
 import {FiUser,FiMail,FiLock,FiArrowLeft} from "react-icons/fi"
 
@@ -21,7 +22,7 @@ export function SingUp(){
 
           <Button type="button" title="Cadastrar"/>
 
-          <a href="/"><FiArrowLeft/> Voltar para o login</a>
+          <Link to="/"><FiArrowLeft/> Voltar para o login</Link>
       </Form>
     </Container>
   )

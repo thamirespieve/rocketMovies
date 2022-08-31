@@ -1,5 +1,7 @@
+import {Link} from "react-router-dom"
+import {FiMail,FiLock} from "react-icons/fi"
+
 import { Container, Form, ImageBackground } from "./style";
-import {FiUser,FiMail,FiLock} from "react-icons/fi"
 import { Button } from "../../components/Button/Button";
 import { Input } from "../../components/Input/input";
 
@@ -19,7 +21,7 @@ export function SingIn(){
           <Input type="text" placeholder="E-mail" icon={FiMail}/> 
           <Input type="password" placeholder="Senha" icon={FiLock}/> 
           <Button title="Entrar"/>
-          <a href="">Criar conta</a>
+          <Link to="register">Criar conta</Link>
         </Form>
 
         <ImageBackground/>
