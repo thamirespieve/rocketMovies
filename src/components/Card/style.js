@@ -20,6 +20,14 @@ export const Container = styled.div`
     font-size: 14px;
 
     margin-bottom: 20px;
+    text-align: justify;
+
+    /* Limita a quantidade de texto mostrada na div */
+    overflow: hidden; // Removendo barra de rolagem
+    text-overflow: ellipsis; // Adicionando "..." ao final
+    display: -webkit-box;
+    -webkit-line-clamp: 2; // Quantidade de linhas
+    -webkit-box-orient: vertical;
   }
 
   span {
