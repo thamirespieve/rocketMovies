@@ -1,4 +1,5 @@
 import styled from 'styled-components'
+import { Link } from 'react-router-dom'
 
 export const Container = styled.div`
   width: 100%;
@@ -19,9 +20,11 @@ export const Container = styled.div`
     margin-left: 136px;
     margin-right: 64px;
   }
-
+`
+export const Profile = styled(Link)`
   > main {
     display: flex;
+    justify-content: end;
     margin-left: 64px;
     margin-right: 123px;
     align-items: center;
