@@ -29,7 +29,7 @@ export const Profile = styled(Link)`
     margin-right: 123px;
     align-items: center;
 
-    width: 450px;
+    width: 250px;
 
     h2 {
       color: ${({ theme }) => theme.COLORS.WHITE};
