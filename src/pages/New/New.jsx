@@ -1,4 +1,5 @@
-import { Container } from "./styled";
+import { Container, Form} from "./styled";
+import { Link } from "react-router-dom"; 
 
 import {Header} from "../../components/Header/Header"
 import { FiArrowLeft } from "react-icons/fi";
@@ -8,28 +9,35 @@ import {Tag} from "../../components/Tag/Tag"
 
 export function New(){
 
-  return(
-  <Container>
-    <Header/>
-    <a href="/"><FiArrowLeft/>Voltar</a>
-    <form>
-      <h1>Novo Filme</h1>
+  return(<>
+      <Header/>
+    <Container>
+      <Link to="/"><FiArrowLeft/>Voltar</Link>
+      <Form>
+        <h1>Novo Filme</h1>
 
-      <div>
-        <Input type = "text" placeholder="Título"/>
-        <Input type = "text" placeholder="Sua nota (de 0 à 5)"/>
-      </div>
+        <div>
+          <Input type = "text" placeholder="Título"/>
+          <Input type = "text" placeholder="Sua nota (de 0 à 5)"/>
+        </div>
 
-      <Input type = "text" placeholder="Observações"/>
+        <textarea placeholder="Observações"></textarea>
 
-      <Tag title = "React" isActive/>
-      <Tag/>
+        <h2>Marcadores</h2>
+        <section>
 
-      <Button title="Excluir filme" />
-      <Button title="Salvar Alteração" />
-    </form>
+        <Tag title = "React" />
+        <Tag isNew title="Novo marcador"/>
+        </section>
 
-  </Container>
+        <div className="buttons">
+          <Button title="Excluir filme" className="deleteButton" />
+          <Button title="Salvar Alteração" />
+        </div>
+      </Form>
+
+    </Container>
+  </>
   )
 
 }
