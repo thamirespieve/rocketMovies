@@ -2,6 +2,7 @@ import { Routes,Route } from "react-router-dom"
 
 import { Home } from "../pages/Home/Home"
 import { Profile } from "../pages/Profile/Profile"
+import { New } from "../pages/New/New"
 
 export function AppRoutes(){
 
@@ -9,6 +10,7 @@ export function AppRoutes(){
     <Routes>
       <Route path="/" element={<Home/>}/>
       <Route path="/profile" element={<Profile/>}/>
+      <Route path="/newMovie" element={<New/>}/>
     </Routes>
   )
 

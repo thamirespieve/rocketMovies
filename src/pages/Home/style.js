@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom'
 import styled from 'styled-components'
 
 export const Container = styled.div`
@@ -14,18 +15,18 @@ export const Content = styled.div`
     h1 {
       font-size: 32px;
     }
-
-    button {
-      color: ${({ theme }) => theme.COLORS.BACKGROUND_BLACK};
-
-      padding: 14px 32px;
-
-      border: none;
-      border-radius: 8px;
-
-      display: flex;
-      align-items: center;
-      gap: 8px;
-    }
   }
+`
+
+export const AddMovie = styled(Link)`
+  color: ${({ theme }) => theme.COLORS.BACKGROUND_BLACK};
+  background: ${({ theme }) => theme.COLORS.PINK};
+  padding: 14px 32px;
+
+  border: none;
+  border-radius: 8px;
+
+  display: flex;
+  align-items: center;
+  gap: 8px;
 `

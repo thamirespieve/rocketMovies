@@ -4,7 +4,7 @@ export function Input({placeholder,type,icon:Icon, ...rest}){
 
   return(
     <Container >
-      <Icon/>
+      {Icon&&<Icon/>}
 
       <input type={type} placeholder={placeholder} {...rest} />
     </Container>
