@@ -1,25 +1,52 @@
-import { Link } from "react-router-dom";
-import { Container,Avatar,Form } from "./style";
-import { FiArrowLeft,FiCamera, FiLock, FiMail, FiUser } from "react-icons/fi";
-import {Input} from "../../components/Input/Input"
-import {Button} from "../../components/Button/Button"
 import { useState } from "react";
 import { useAuth } from "../../hooks/auth";
+import { FiArrowLeft,FiCamera, FiLock, FiMail, FiUser } from "react-icons/fi";
+import { Link } from "react-router-dom";
+
+import { Container,Avatar,Form } from "./style";
+import avatarPlaceholder from "../../assets/avatar_placeholder.svg"
+
+import {Input} from "../../components/Input/Input"
+import {Button} from "../../components/Button/Button"
+import { api } from "../../services/api";
+
 export function Profile(){
 
   const {user, updateProfile} = useAuth()
-
+  const avatarURL = user.avatar? `${api.defaults.baseURL}/files/${user.avatar}` :avatarPlaceholder
+  
   const [name, setName] = useState(user.name)
   const [email, setEmail] = useState(user.email)
   const [passwordOld, setPasswordOld] = useState() 
   const [passwordNew, setPasswordNew] = useState()
+  const [avatar, setAvatar] = useState(avatarURL)
+  const [avatarFile, setAvatarFile] = useState(null)
 
+  function handleChangeAvatar(event) {
+    const file = event.target.files[0]
 
- async function handleUpdate(event){
+    setAvatarFile(file)
+
+    const imageProview = URL.createObjectURL(file)
+
+    setAvatar(imageProview)
+
+  }
+
+  async function handleUpdate(event){
+
   event.preventDefault()
-  const user = {name,email, password: passwordNew, old_password: passwordOld}
   
-  await updateProfile({user})
+  const updated = {
+    name,
+    email, 
+    password: passwordNew, 
+    old_password: passwordOld
+  }
+  
+  const userUpdated = Object.assign(user,updated)
+
+  await updateProfile({user:userUpdated, avatarFile })
 }
 
 return(
@@ -31,10 +58,11 @@ return(
 
     <Form>
       <Avatar>
-        <img src="https://github.com/thamirespieve.png" alt="Imagem de usuário" />
+        <img src= {avatar} alt="Imagem de usuário" />
         <label htmlFor="avatar">
           <FiCamera />
           <input id="avatar"
+          onChange={handleChangeAvatar}
           type="file"/>
         </label>
       </Avatar>
