@@ -10,6 +10,10 @@ export function Header (){
   const navigate = useNavigate()
 
 
+  function hadleProfile() {
+    navigate("/profile")
+  }
+
   function handleSingOut(){
     navigate("/")
     singOut()
@@ -23,10 +27,10 @@ export function Header (){
       <Profile>
         <main>
           <div>
-            <h2>Thamires Pieve</h2>
+            <h2 onClick={hadleProfile}>Thamires Pieve</h2>
             <button onClick={handleSingOut} >Sair</button>
           </div>
-          <img src="https://github.com/thamirespieve.png" alt="Imagem de usuário do github" />
+          <img src="https://github.com/thamirespieve.png" alt="Imagem de usuário do github" onClick={hadleProfile} />
         </main>
       </Profile>
     </Container>

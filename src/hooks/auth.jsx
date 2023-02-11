@@ -34,13 +34,31 @@ function AuthProvider({children}){
 
   }
 
-
   function singOut() {
   
     localStorage.removeItem("RocketMovies@token")
     localStorage.removeItem("RocketMovies@user")
 
     setData({})
+  }
+
+  async function updateProfile({user}) {
+    try {
+       await api.put('/user',user)
+
+       localStorage.setItem("RocketMovies@user",JSON.stringify(user))
+       setData({user, token:data.token})
+
+       alert("Perfil atualizado com sucesso.")
+     } catch (error) {
+      
+       if(error.response){
+         alert(error.response.data.message)
+       } else{
+         alert('Não foi possível atuaizar as informações do perfil.')
+       }
+
+     }
   }
 
   useEffect(()=>{
@@ -57,7 +75,7 @@ function AuthProvider({children}){
   },[])
 
   return(
-    <AuthContext.Provider value={{singIn, singOut, user:data.user}}>
+    <AuthContext.Provider value={{singIn, singOut, user:data.user, updateProfile}}>
       {children}
     </AuthContext.Provider>
   )

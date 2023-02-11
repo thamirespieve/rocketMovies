@@ -39,6 +39,8 @@ export const Profile = styled.div`
         color: ${({ theme }) => theme.COLORS.WHITE};
         font-weight: 700;
         font-size: 14px;
+
+        cursor: pointer;
       }
 
       button {
@@ -64,6 +66,8 @@ export const Profile = styled.div`
       height: 64px;
       border-radius: 50%;
       margin-left: 10px;
+
+      cursor: pointer;
     }
   }
 `
