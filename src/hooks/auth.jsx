@@ -11,7 +11,7 @@ function AuthProvider({children}){
 
   async function singIn ({email,password}){
   try {
-    
+    console.log(email,password)
     const response = await api.post('/sessions',{email,password})
     const {user, token} = response.data
 
@@ -35,6 +35,14 @@ function AuthProvider({children}){
   }
 
 
+  function singOut() {
+  
+    localStorage.removeItem("RocketMovies@token")
+    localStorage.removeItem("RocketMovies@user")
+
+    setData({})
+  }
+
   useEffect(()=>{
     const token = localStorage.getItem("RocketMovies@token")
     const user = localStorage.getItem("RocketMovies@user")
@@ -49,7 +57,7 @@ function AuthProvider({children}){
   },[])
 
   return(
-    <AuthContext.Provider value={{singIn, user:data.user}}>
+    <AuthContext.Provider value={{singIn, singOut, user:data.user}}>
       {children}
     </AuthContext.Provider>
   )

@@ -21,7 +21,7 @@ export const Container = styled.div`
     margin-right: 64px;
   }
 `
-export const Profile = styled(Link)`
+export const Profile = styled.div`
   > main {
     display: flex;
     justify-content: end;
@@ -31,10 +31,26 @@ export const Profile = styled(Link)`
 
     width: 250px;
 
-    h2 {
-      color: ${({ theme }) => theme.COLORS.WHITE};
-      font-weight: 700;
-      font-size: 14px;
+    div {
+      display: flex;
+      flex-direction: column;
+      align-items: end;
+      h2 {
+        color: ${({ theme }) => theme.COLORS.WHITE};
+        font-weight: 700;
+        font-size: 14px;
+      }
+
+      button {
+        color: ${({ theme }) => theme.COLORS.GRAY_99};
+        font-size: 14px;
+
+        width: 40px;
+
+        border: none;
+
+        background-color: transparent;
+      }
     }
 
     p {

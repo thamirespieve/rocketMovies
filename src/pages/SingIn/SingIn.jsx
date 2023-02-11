@@ -17,9 +17,12 @@ export function SingIn(){
 
   function handleSingIn(){
 
+    
     if(!email || !password){
       return alert('Todos os campos devem ser preenchidos.')
     }
+
+    // console.log(email, password)
 
     singIn({email,password})
   }
