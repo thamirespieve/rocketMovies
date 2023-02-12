@@ -15,8 +15,8 @@ export function SingIn(){
 
   const{singIn} = useAuth()
 
-  function handleSingIn(){
-
+  function handleSingIn(event){
+    event.preventDefault()
     
     if(!email || !password){
       return alert('Todos os campos devem ser preenchidos.')

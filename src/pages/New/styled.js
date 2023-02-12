@@ -49,6 +49,15 @@ export const Form = styled.form`
     border-radius: 8px;
   }
 
+  .tags {
+    padding: 16px;
+    gap: 24px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+  }
+
   .buttons {
     display: flex;
     font-weight: 500;
