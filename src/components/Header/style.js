@@ -20,6 +20,23 @@ export const Container = styled.div`
     margin-left: 136px;
     margin-right: 64px;
   }
+
+  > input {
+    height: 56px;
+    width: 100%;
+
+    padding: 12px;
+
+    color: ${({ theme }) => theme.COLORS.WHITE};
+    background: ${({ theme }) => theme.COLORS.BACKGROUND_INPUT};
+
+    border: none;
+    border-radius: 10px;
+
+    &::placeholder {
+      color: ${({ theme }) => theme.COLORS.GRAY_99};
+    }
+  }
 `
 export const Profile = styled.div`
   > main {

@@ -1,10 +1,10 @@
 import { useNavigate } from "react-router-dom";
 import { useAuth } from "../../hooks/auth";
 
-import {FiSearch} from "react-icons/fi"
+
 import { Container,Profile } from "./style";
-import {Input} from "../Input/Input"
-export function Header (){
+
+export function Header ({value, onChange,...rest}){
 
   const {singOut} = useAuth()
   const navigate = useNavigate()
@@ -22,7 +22,12 @@ export function Header (){
   return(
     <Container>
       <h1>RocketMovies</h1>
-      <Input type="text" placeholder="Pesquisar pelo título" icon={FiSearch }/>
+      <input 
+        type="text" 
+        placeholder="Pesquisar pelo título" 
+        value = {value} 
+        onChange ={onChange} 
+        {...rest} />
 
       <Profile>
         <main>
