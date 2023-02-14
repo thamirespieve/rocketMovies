@@ -11,7 +11,7 @@ export function Card({title,description,tags}){
         <div>★ ★ ★ ★ ☆</div>
         <p>{description} </p>
     
-        {tags.map(tag=><span>{tag}</span>)}
+        {tags.map((tag,index)=><span key={index}>{tag}</span>)}
         
       </Container>
     </Link>

@@ -13,18 +13,32 @@ export function Home(){
   const [movies,setMovies] = useState([])
   const [search, setSearch] = useState([])
 
+
+  async function fetchAllMovies() {
+    const response =  await api.get("/movieNotes")
+    
+    setMovies(response.data)
+  }
+ 
   useEffect(()=>{
-
-    async function fetchAllMovies() {
-      const response =  await api.get("/movieNotes")
-      
-      setMovies(response.data)
-    }
-
 
     fetchAllMovies()
 
   }, [])
+
+  useEffect(()=>{
+    async function fetchMovie() {
+       const response =  await api.get(`/movieNotes/${search}`)
+       const movie = response.data
+       
+        setMovies(movie)
+    }
+
+ if(search.length !=0 )
+    fetchMovie()
+ else 
+    fetchAllMovies()   
+  },[search])
 
   return(
     <Container>
@@ -37,14 +51,14 @@ export function Home(){
           <h1>Meus filmes</h1>
           <AddMovie to="/newMovie"><FiPlus/>Adicionar filme</AddMovie>
         </header>
-        {
+        { movies.length > 0 ?
           movies.map(movie => 
             <Card 
             key = {movie.id}
             title={movie.title}
             description= {movie.description}
-            tags={movie.tags.length > 0 ? movie.tags.map(tag => tag.name):"Sem marcador"}/>
-          )
+            tags={movie.tags.length > 0 ? movie.tags.map(tag => tag.name):["Sem marcador"]}/>
+          ) : "Não há filmes cadastrados"
         }
       
       </Content>

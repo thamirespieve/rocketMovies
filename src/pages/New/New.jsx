@@ -102,7 +102,7 @@ export function New(){
         </section>
 
         <div className="buttons">
-          <Button title="Excluir filme" className="deleteButton" />
+          <Button title="Excluir filme" className="deleteButton" onClick = {handleRemoveMovie} />
           <Button title="Salvar Alteração" onClick = {handleNewNote} />
         </div>
       </Form>
