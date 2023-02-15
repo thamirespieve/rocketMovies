@@ -1,12 +1,10 @@
-import { Link } from "react-router-dom";
 import { Container } from "./style";
 
-
-export function Card({title,description,tags}){
+export function Card({title,description,tags,...rest}){
 
   return(
-    <Link to="/moviePreview">
-      <Container >
+  
+      <Container {...rest} >
         <h1>{title}</h1>
         <div>★ ★ ★ ★ ☆</div>
         <p>{description} </p>
@@ -14,6 +12,6 @@ export function Card({title,description,tags}){
         {tags.map((tag,index)=><span key={index}>{tag}</span>)}
         
       </Container>
-    </Link>
+    
   )
 }

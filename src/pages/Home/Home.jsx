@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 import { FiPlus } from "react-icons/fi";
 import { Container,Content,AddMovie } from "./style";
@@ -13,11 +14,16 @@ export function Home(){
   const [movies,setMovies] = useState([])
   const [search, setSearch] = useState([])
 
+  const navigate = useNavigate()
 
   async function fetchAllMovies() {
     const response =  await api.get("/movieNotes")
     
     setMovies(response.data)
+  }
+
+  function handleDetails(id){
+    navigate(`/moviePreview/${id}`)
   }
  
   useEffect(()=>{
@@ -54,6 +60,7 @@ export function Home(){
         { movies.length > 0 ?
           movies.map(movie => 
             <Card 
+            onClick = {() => handleDetails(movie.id)}
             key = {movie.id}
             title={movie.title}
             description= {movie.description}
