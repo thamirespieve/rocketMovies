@@ -6,7 +6,7 @@ import {FiMail,FiLock} from "react-icons/fi"
 
 import { Container, Form, ImageBackground } from "./style";
 import { Button } from "../../components/Button/Button";
-import { Input } from "../../components/Input/input";
+import { Input } from "../../components/Input/Input";
 
 export function SingIn(){
 
