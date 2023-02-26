@@ -5,7 +5,7 @@ import { api }  from '../../services/api'
 import { Container,Form,BackgroundImage } from "./style";
 import {FiUser,FiMail,FiLock,FiArrowLeft} from "react-icons/fi"
 
-import { Input } from "../../components/Input/input";
+import { Input } from "../../components/Input/Input";
 import { Button } from "../../components/Button/Button";
 
 export function SingUp(){
