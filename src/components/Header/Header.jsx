@@ -4,6 +4,7 @@ import { api } from "../../services/api";
 
 
 import { Container,Profile } from "./style";
+import avatarPlaceholder from "../../assets/avatar_placeholder.svg"
 
 export function Header ({value, onChange,...rest}){
 
