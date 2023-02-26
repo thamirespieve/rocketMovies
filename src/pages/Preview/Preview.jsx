@@ -5,6 +5,7 @@ import { useAuth } from "../../hooks/auth";
 
 import { FiArrowLeft ,FiClock } from "react-icons/fi";
 import { Container } from "./style";
+import avatarPlaceholder from "../../assets/avatar_placeholder.svg"
 
 import {Header} from "../../components/Header/Header"
 import { api } from "../../services/api";
